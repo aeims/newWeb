@@ -38,6 +38,28 @@ li a:hover {
     float: right;
 }
 
+button {
+    display: inline-block;
+    border: 2px solid #ffcc00;
+    border-radius: 6px;
+    padding:50px 150px;
+    margin: 15px 0px;
+    font-size: 28px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: #333;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    color: whitesmoke;
+    background-color: #ffcc00;
+}
+
+button:active {
+    transform: translateY(6px);
+}
+
 .footer {
     display: block;
     color: lightgray;
