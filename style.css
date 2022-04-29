@@ -20,6 +20,7 @@ li {
 li a {
     display: block;
     color: whitesmoke;
+    font-size: 16px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -32,6 +33,7 @@ li a:hover {
 
 .active {
     background-color: #ffcc00;
+    color: #333;
 }
 
 .link-icons {
