@@ -9,6 +9,7 @@ ul {
     overflow: hidden;
     background-color: #333;
     position: fixed;
+    z-index: 2;
     top: 0;
     width: 100%;
 }
@@ -64,7 +65,7 @@ button:active {
 
 .canvas {
     overflow: hidden;
-    font-family: cursive;
+    font-family: Apple Chancery, cursive
 }
 
 .footer {
@@ -82,6 +83,7 @@ button:active {
     transform: skew(30deg);
     background-color: rgba(255, 255, 255, 0.534);
     position: relative;
+    z-index: 1;
     animation: block 4s ease infinite;
 }
 /* cubic-bezier(0.1, 0.5, 0.5, 0.1) */
