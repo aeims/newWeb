@@ -62,11 +62,31 @@ button:active {
     transform: translateY(6px);
 }
 
+.canvas {
+    overflow: hidden;
+    font-family: cursive;
+}
+
 .footer {
     display: block;
-    color: lightgray;
+    color: rgb(187, 187, 187);
     text-align: center;
     width: 100%;
     padding: 14px 0;
     background-color: #333;
+}
+
+#block{
+    width: 100px;
+    height: 100%;
+    transform: skew(30deg);
+    background-color: rgba(255, 255, 255, 0.534);
+    position: relative;
+    animation: block 4s ease infinite;
+}
+/* cubic-bezier(0.1, 0.5, 0.5, 0.1) */
+
+@keyframes block{
+    from {left: 105%;}
+    to {left: -150px;}
 }

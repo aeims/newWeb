@@ -1,2 +1,5 @@
-*.gif
 load.html
+*.gif
+*.png
+*.txt
+*.py
