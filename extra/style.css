@@ -1,0 +1,629 @@
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: radial-gradient(circle at top right, rgba(121, 68, 154, 0.13),transparent),
+  radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent)
+  }
+canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  position: absolute;
+  bottom: 2vmin;
+  right: 2vmin;
+  color: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/*Bird animation adapted from https://www.iamramraj.com/flying-birds-css-animation-examples/
+ Birds sprite sheet adapted from vabadov - https://depositphotos.com/portfolio-2110015.html?content=photo
+*/
+
+.frame {
+  width: 400px;
+  height: 400px;
+  box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.7);
+  border-radius: 7px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #89adee;
+  overflow: hidden;
+}
+
+.sun {
+  width: 75px;
+  aspect-ratio: 1;
+  background-color: #ffcb3c;
+  border-radius: 50%;
+  box-shadow: 0 0 70px rgb(255, 254, 254),
+    0 0 75px 55px rgba(255, 255, 255, 0.4);
+  position: absolute;
+  left: 50px;
+  top: 40px;
+  animation: sun 30s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes sun {
+  0% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+.bird-container {
+  transform: scale(0.5);
+  animation: transit 15s linear infinite 2s;
+  position: absolute;
+  left: -100px;
+  top: 200px;
+}
+
+@keyframes transit {
+  0% {
+    transform: scale(0.3) translateX(-100px);
+  }
+  50% {
+    transform: scale(0.3) translateX(1700px);
+  }
+  100% {
+    transform: scale(0.3) translateX(1700px);
+  }
+}
+
+.bird {
+  width: 115px;
+  height: 124px;
+  background-image: url(https://i.ibb.co/R28zSrX/flight-transp.png);
+  background-size: auto 100%;
+  animation-name: flight;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes flight {
+  100% {
+    background-position: -1150px 0;
+  }
+}
+
+.piggy-container {
+  transform: translateX(235px) scale(0.2);
+  z-index: 5;
+}
+
+.trigger{
+    animation: pork 3s linear forwards;
+}
+
+@keyframes pork {
+  0% {
+    transform: translateX(235px) translateY(0px) scale(0.2);
+  }
+  50% {
+    transform: translateX(-235px) translateY(-60px) scale(0.2);
+  }
+  100% {
+    transform: translateX(-800px) translateY(-1200px) scale(0.2);
+  }
+}
+
+.piggy {
+  width: 397px;
+  height: 272px;
+  background-image: url(https://i.ibb.co/rfDmHtk/piggy.png);
+  background-size: auto 100%;
+  animation-name: piggy;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes piggy {
+  100% {
+    background-position: -3970px 0;
+  }
+}
+
+.cloud {
+  background-color: white;
+  position: absolute;
+  opacity: 0.8;
+  border-radius: 30px;
+}
+
+.cloud::before {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 170%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  background-color: white;
+  /* border: 1px solid red; */
+}
+
+.cloud::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 240%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  background-color: white;
+  /* border: 1px solid red; */
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(330%);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+.cloud-one {
+  width: 140px;
+  height: 20px;
+  top: 120px;
+  animation: float 50s linear infinite alternate;
+}
+
+.cloud-two {
+  width: 75px;
+  height: 15px;
+  top: 190px;
+  animation: float 60s linear infinite alternate;
+  opacity: 0.6;
+}
+
+.cloud-three {
+  width: 120px;
+  height: 35px;
+  top: 270px;
+  animation: float 30s linear infinite alternate;
+}
+
+.frame2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background: #4C4BA2;
+}
+
+.dots {
+  padding-top: 28px;
+  padding-left: 194px;
+}
+.dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 5px 0;
+}
+
+.dot-1 {
+  -webkit-animation: dot 1016.9491525424ms ease-in-out infinite;
+          animation: dot 1016.9491525424ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-1 {
+animation: dot-1 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-1 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-2 {
+  -webkit-animation: dot 1034.4827586207ms ease-in-out infinite;
+          animation: dot 1034.4827586207ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-2 {
+animation: dot-2 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-2 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-3 {
+  -webkit-animation: dot 1052.6315789474ms ease-in-out infinite;
+          animation: dot 1052.6315789474ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-3 {
+animation: dot-3 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-3 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-4 {
+  -webkit-animation: dot 1071.4285714286ms ease-in-out infinite;
+          animation: dot 1071.4285714286ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-4 {
+animation: dot-4 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-4 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-5 {
+  -webkit-animation: dot 1090.9090909091ms ease-in-out infinite;
+          animation: dot 1090.9090909091ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-5 {
+animation: dot-5 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-5 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-6 {
+  -webkit-animation: dot 1111.1111111111ms ease-in-out infinite;
+          animation: dot 1111.1111111111ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-6 {
+animation: dot-6 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-6 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-7 {
+  -webkit-animation: dot 1132.0754716981ms ease-in-out infinite;
+          animation: dot 1132.0754716981ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-7 {
+animation: dot-7 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-7 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-8 {
+  -webkit-animation: dot 1153.8461538462ms ease-in-out infinite;
+          animation: dot 1153.8461538462ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-8 {
+animation: dot-8 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-8 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-9 {
+  -webkit-animation: dot 1176.4705882353ms ease-in-out infinite;
+          animation: dot 1176.4705882353ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-9 {
+animation: dot-9 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-9 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-10 {
+  -webkit-animation: dot 1200ms ease-in-out infinite;
+          animation: dot 1200ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-10 {
+animation: dot-10 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-10 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-11 {
+  -webkit-animation: dot 1224.4897959184ms ease-in-out infinite;
+          animation: dot 1224.4897959184ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-11 {
+animation: dot-11 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-11 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-12 {
+  -webkit-animation: dot 1250ms ease-in-out infinite;
+          animation: dot 1250ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-12 {
+animation: dot-12 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-12 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-13 {
+  -webkit-animation: dot 1276.5957446809ms ease-in-out infinite;
+          animation: dot 1276.5957446809ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-13 {
+animation: dot-13 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-13 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-14 {
+  -webkit-animation: dot 1304.347826087ms ease-in-out infinite;
+          animation: dot 1304.347826087ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-14 {
+animation: dot-14 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-14 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-15 {
+  -webkit-animation: dot 1333.3333333333ms ease-in-out infinite;
+          animation: dot 1333.3333333333ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-15 {
+animation: dot-15 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-15 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-16 {
+  -webkit-animation: dot 1363.6363636364ms ease-in-out infinite;
+          animation: dot 1363.6363636364ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-16 {
+animation: dot-16 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-16 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-17 {
+  -webkit-animation: dot 1395.3488372093ms ease-in-out infinite;
+          animation: dot 1395.3488372093ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-17 {
+animation: dot-17 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-17 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-18 {
+  -webkit-animation: dot 1428.5714285714ms ease-in-out infinite;
+          animation: dot 1428.5714285714ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-18 {
+animation: dot-18 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-18 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-19 {
+  -webkit-animation: dot 1463.4146341463ms ease-in-out infinite;
+          animation: dot 1463.4146341463ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-19 {
+animation: dot-19 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-19 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+.dot-20 {
+  -webkit-animation: dot 1500ms ease-in-out infinite;
+          animation: dot 1500ms ease-in-out infinite;
+}
+
+/* DIFFERENT STYLE OF PENDULUM
+.dot-20 {
+animation: dot-20 ($time * 1000) + ms ease-in-out infinite;
+}
+
+@keyframes dot-20 {
+	0%, 100% {
+		transform: translate3d( ($i * 8) + px, 0,0 );
+	}
+	50% {
+		transform: translate3d( ($i * -8) + px, 0,0 );
+	}
+}
+*/
+@-webkit-keyframes dot {
+  0%, 100% {
+    transform: translate3d(50px, 0, 0);
+  }
+  50% {
+    transform: translate3d(-50px, 0, 0);
+  }
+}
+@keyframes dot {
+  0%, 100% {
+    transform: translate3d(50px, 0, 0);
+  }
+  50% {
+    transform: translate3d(-50px, 0, 0);
+  }
+}

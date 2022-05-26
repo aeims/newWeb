@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="frame">
+        <div class="sun"></div>
+        <div class="bird-container">
+          <div class="bird"></div>
+        </div>
+        <div class="piggy-container">
+          <div class="piggy"></div>
+        </div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="cloud cloud-three"></div>
+      </div>
+<script>
+const sun = document.getElementsByClassName('sun')[0]
+
+const piggy = document.getElementsByClassName('piggy-container')[0]
+
+
+function removeClass(){
+  piggy.classList.remove('trigger')
+}
+
+
+sun.addEventListener('click', () =>
+{ 
+    piggy.classList.add('trigger')
+  setTimeout(removeClass, 2000)
+});
+</script>
+</body>
+</html>
